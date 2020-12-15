@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addColor, getColors, deleteColor } from '../store/actions/colorsAction'
-import { Form, Button, ListGroup, Alert } from 'react-bootstrap';
+import { addColor, getColors } from '../store/actions/colorsAction'
+import { Form, Button, Alert } from 'react-bootstrap';
 
- class colors extends Component {
+ class colorForm extends Component {
     constructor(props) {
         super(props);
         this.state = 
@@ -56,16 +56,11 @@ import { Form, Button, ListGroup, Alert } from 'react-bootstrap';
         this.setState({ hasError: false })
     };
           
-    componentDidMount(){
-        this.props.getColors()   
-    }
-
     render() {
         const {colors} = this.props.colors
-        const listColors = this.props.colors.listColors
 
         return (
-            <div>
+            <>
                 <Form onSubmit={this.validate}>
                     <Form.Group>
                     <Form.Label>Name</Form.Label>
@@ -80,7 +75,7 @@ import { Form, Button, ListGroup, Alert } from 'react-bootstrap';
                         <Form.Label>Color</Form.Label>
                         <Form.Control as="select" onChange={this.handleChangeColor} value={this.props.color}>
                         {colors.map((color, index) => 
-                            <option value={color.hex} key={index} style={{ backgroundColor: '#' + color.hex }}>{color.hex ? '#' + color.hex : 'No color'}</option>
+                            <option value={color.hex ? color.hex : 'transparent'} key={index} style={{ backgroundColor: '#' + color.hex }}>{color.hex ? '#' + color.hex : 'No color'}</option>
                         )}
                         </Form.Control>
                         <Button 
@@ -91,21 +86,7 @@ import { Form, Button, ListGroup, Alert } from 'react-bootstrap';
                         </Button>
                     </Form.Group>
                 </Form> 
-                <hr/>
-                <ListGroup>
-                    {listColors.map((item, index) => 
-                        <ListGroup.Item className="float-left" style={{ backgroundColor: '#' + item.hex }} key={index}>{item.text}
-                            <Button 
-                                size="sm" 
-                                className="float-right" 
-                                key={item.name} 
-                                onClick={() => this.props.deleteColor(index)}
-                                variant="light">Delete
-                            </Button>
-                        </ListGroup.Item>
-                    )}
-                </ListGroup>
-            </div>
+            </>
         )
     }
 }
@@ -114,7 +95,6 @@ const mapDispatchToProps = dispatch => {
     return {
         addColor: (value, color) => dispatch(addColor(value, color)),
         getColors: (color) => dispatch(getColors(color)),
-        deleteColor: (color) => dispatch(deleteColor(color))
     }
   }
 
@@ -123,5 +103,5 @@ const mapStateToProps  = (state) => ({colors:state.colors})
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-    )(colors);
+    )(colorForm);
  

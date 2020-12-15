@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {Container, Row, Col} from 'react-bootstrap';
 
-import Colors from './components/colors'
+import ContainerColors from './components/containerColors'
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Row className="justify-content-md-center">
           <Col sm={12} md={6}>
               <h1 className="text-center mt-5">Simple TODO List App</h1>
-              <Colors/>
+              <ContainerColors/>
           </Col>
         </Row>
       </Container>
