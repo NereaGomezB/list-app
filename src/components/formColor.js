@@ -75,7 +75,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
                         <Form.Label>Color</Form.Label>
                         <Form.Control as="select" onChange={this.handleChangeColor} value={this.props.color}>
                         {colors.map((color, index) => 
-                            <option value={color.hex ? color.hex : 'transparent'} key={index} style={{ backgroundColor: '#' + color.hex }}>{color.hex ? '#' + color.hex : 'No color'}</option>
+                            <option value={color.hex ? color.hex : 'FFFFFF80'} key={index} style={{ backgroundColor: '#' + color.hex }}>{color.hex ? '#' + color.hex : 'No color'}</option>
                         )}
                         </Form.Control>
                         <Button 
