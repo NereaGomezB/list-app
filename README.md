@@ -1,3 +1,38 @@
+# List App
+
+Aplicacion que listará nombre y color introducido por el usuario. Además se podrá eliminar dichos colores introducidos por el usuario.
+Por lo que el primer input sirve para introducir un campo de texto, que validará si esta vacio.
+El desplegable muestra como opciones los colores que se obtienen al hacer una petición de GET al siguiente recurso: http://www.colr.org/json/colors/random/10
+Este desplegable mostará color transparente cuando no encuentre un color en la API
+Cuando el usuario clica en el botón, se añadirá a la lista que hay debajo un elemento que muestre el texto y el color que hemos introducido en los dos controles previos
+Por ultimo, el usuario podrá eliminar el texto y el color introducidos en cualquier momento.
+
+
+## Project setup
+
+Navegar hasta cd /todo-list
+Instalar todos los paquetes necesarios para arrancar la aplicacion: `npm install`
+
+## Tecnologías Utilizadas
+
+### Frontend
+* React
+* Redux
+* Boostrap
+* Axios
+
+En el package.json se pueden ver las tecnologias y librerias utilizadas y las tareas creadas.
+
+
+## Usage
+
+`npm start`
+
+### Autor
+[ Nerea Gómez ](https://www.neregomez.es/)
+
+/************************************************************************************************************************************************************************
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
